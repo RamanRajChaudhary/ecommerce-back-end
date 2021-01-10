@@ -27,11 +27,11 @@ app.post('/signup',
 async(req, res) => {
  console.log(" raju pappu");
  try{
-    await user.findOne({email: req.body.email})
-    .exec((error, user) => {
-        if(user) return res.status(400).json({
-            message: 'user already registered'
-        });
+    await user.findOne({email: req.body.email});
+    // .exec((error, user) => {
+    //     if(user) return res.status(400).json({
+    //         message: 'user already registered'
+    //     });
         const {
             firstName,
             lastName,
@@ -56,7 +56,7 @@ async(req, res) => {
                 })
             } 
             });
-    }); 
+    //}); 
 }catch(e){console.log(e.message);}
 });
 app.listen(process.env.PORT, () => {
